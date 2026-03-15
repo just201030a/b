@@ -252,6 +252,10 @@ body{
     letter-spacing:3px;
     padding:12px 12px;
     bottom:18px;
+    opacity:0;
+  }
+
+  .category-image-box:active .view-product-btn{
     opacity:1;
   }
 }

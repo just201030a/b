@@ -4,7 +4,11 @@ const prevBtn = document.getElementById("prevBtn");
 const cards = document.querySelectorAll(".category-card");
 
 let currentIndex = 0;
-let autoSlide;
+let autoSlide = null;
+
+let startX = 0;
+let endX = 0;
+let isTouching = false;
 
 function getCardsPerView() {
   if (window.innerWidth <= 600) return 1;
@@ -12,147 +16,214 @@ function getCardsPerView() {
   return 3;
 }
 
-function updateSlider() {
-
-  const cardWidth = cards[0].offsetWidth;
-  const gap = 18;
-
-  slider.style.transition = "transform 0.45s ease";
-
-  slider.style.transform =
-    `translateX(-${currentIndex * (cardWidth + gap)}px)`;
-
+function getGap() {
+  return window.innerWidth <= 600 ? 0 : 18;
 }
 
-/* NEXT BUTTON */
-nextBtn.addEventListener("click", () => {
+function getMaxIndex() {
+  return Math.max(0, cards.length - getCardsPerView());
+}
 
-  const maxIndex = cards.length - getCardsPerView();
+function updateSlider(withAnimation = true) {
+  if (!slider || !cards.length) return;
 
-  currentIndex++;
+  const cardWidth = cards[0].offsetWidth;
+  const gap = getGap();
 
-  if (currentIndex > maxIndex) {
+  slider.style.transition = withAnimation ? "transform 0.45s ease" : "none";
+  slider.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+}
+
+function goNext() {
+  const maxIndex = getMaxIndex();
+
+  if (currentIndex >= maxIndex) {
     currentIndex = 0;
+  } else {
+    currentIndex++;
   }
 
   updateSlider();
+}
 
-});
+function goPrev() {
+  const maxIndex = getMaxIndex();
 
-/* PREV BUTTON */
-prevBtn.addEventListener("click", () => {
+  if (currentIndex <= 0) {
+    currentIndex = maxIndex;
+  } else {
+    currentIndex--;
+  }
 
-  const maxIndex = cards.length - getCardsPerView();
+  updateSlider();
+}
 
-  currentIndex--;
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = null;
+}
 
-  if (currentIndex < 0) {
+function startAutoSlide() {
+  stopAutoSlide();
+
+  /* on mobile, stop auto slide completely */
+  if (window.innerWidth <= 600) return;
+
+  autoSlide = setInterval(() => {
+    goNext();
+  }, 4000);
+}
+
+/* BUTTONS */
+if (nextBtn) {
+  nextBtn.addEventListener("click", goNext);
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", goPrev);
+}
+
+/* DESKTOP HOVER PAUSE */
+if (slider) {
+  slider.addEventListener("mouseenter", () => {
+    if (window.innerWidth > 600) {
+      stopAutoSlide();
+    }
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    if (window.innerWidth > 600) {
+      startAutoSlide();
+    }
+  });
+}
+
+/* MOBILE SWIPE */
+if (slider) {
+  slider.addEventListener(
+    "touchstart",
+    (e) => {
+      if (window.innerWidth > 600) return;
+
+      startX = e.touches[0].clientX;
+      endX = startX;
+      isTouching = true;
+      stopAutoSlide();
+    },
+    { passive: true }
+  );
+
+  slider.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isTouching || window.innerWidth > 600) return;
+      endX = e.touches[0].clientX;
+    },
+    { passive: true }
+  );
+
+  slider.addEventListener(
+    "touchend",
+    () => {
+      if (!isTouching || window.innerWidth > 600) return;
+
+      const diffX = startX - endX;
+
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+
+      isTouching = false;
+      startX = 0;
+      endX = 0;
+    },
+    { passive: true }
+  );
+}
+
+/* IMPORTANT FIX:
+   do NOT reset to first slide on resize */
+window.addEventListener("resize", () => {
+  const maxIndex = getMaxIndex();
+
+  if (currentIndex > maxIndex) {
     currentIndex = maxIndex;
   }
 
-  updateSlider();
-
-});
-
-/* AUTO SLIDE (REFY style) */
-
-function startAutoSlide(){
-
-  autoSlide = setInterval(() => {
-
-    const maxIndex = cards.length - getCardsPerView();
-
-    currentIndex++;
-
-    if(currentIndex > maxIndex){
-      currentIndex = 0;
-    }
-
-    updateSlider();
-
-  },4000);
-
-}
-
-/* Pause when hover */
-
-slider.addEventListener("mouseenter",()=>{
-  clearInterval(autoSlide);
-});
-
-slider.addEventListener("mouseleave",()=>{
+  updateSlider(false);
   startAutoSlide();
 });
 
-/* Responsive fix */
-
-window.addEventListener("resize",()=>{
-  currentIndex = 0;
-  updateSlider();
-});
-
-/* Start */
-
-updateSlider();
+/* START */
+updateSlider(false);
 startAutoSlide();
 
-/* ANNOUNCEMENT BAR SLIDER */
-
+/* ANNOUNCEMENT BAR */
 const announceSlider = document.getElementById("announcementSlider");
 const announceItems = document.querySelectorAll(".announcement-item");
 const announceNext = document.getElementById("announceNext");
 const announcePrev = document.getElementById("announcePrev");
 
 let announceIndex = 0;
-let announceAuto;
+let announceAuto = null;
 
-function updateAnnouncement(){
-announceSlider.style.transform =
-`translateX(-${announceIndex * 100}%)`;
+function updateAnnouncement() {
+  if (!announceSlider || !announceItems.length) return;
+  announceSlider.style.transform = `translateX(-${announceIndex * 100}%)`;
 }
 
-announceNext.addEventListener("click",()=>{
-announceIndex++;
-
-if(announceIndex >= announceItems.length){
-announceIndex = 0;
+function stopAnnouncementAuto() {
+  clearInterval(announceAuto);
+  announceAuto = null;
 }
 
-updateAnnouncement();
-});
+function startAnnouncementAuto() {
+  stopAnnouncementAuto();
 
-announcePrev.addEventListener("click",()=>{
-announceIndex--;
+  announceAuto = setInterval(() => {
+    announceIndex++;
 
-if(announceIndex < 0){
-announceIndex = announceItems.length - 1;
+    if (announceIndex >= announceItems.length) {
+      announceIndex = 0;
+    }
+
+    updateAnnouncement();
+  }, 4000);
 }
 
-updateAnnouncement();
-});
+if (announceNext) {
+  announceNext.addEventListener("click", () => {
+    announceIndex++;
 
-function startAnnouncementAuto(){
+    if (announceIndex >= announceItems.length) {
+      announceIndex = 0;
+    }
 
-announceAuto = setInterval(()=>{
-
-announceIndex++;
-
-if(announceIndex >= announceItems.length){
-announceIndex = 0;
+    updateAnnouncement();
+  });
 }
 
-updateAnnouncement();
+if (announcePrev) {
+  announcePrev.addEventListener("click", () => {
+    announceIndex--;
 
-},4000);
+    if (announceIndex < 0) {
+      announceIndex = announceItems.length - 1;
+    }
 
+    updateAnnouncement();
+  });
 }
 
-document.querySelector(".announcement-bar").addEventListener("mouseenter",()=>{
-clearInterval(announceAuto);
-});
+const announcementBar = document.querySelector(".announcement-bar");
 
-document.querySelector(".announcement-bar").addEventListener("mouseleave",()=>{
-startAnnouncementAuto();
-});
+if (announcementBar) {
+  announcementBar.addEventListener("mouseenter", stopAnnouncementAuto);
+  announcementBar.addEventListener("mouseleave", startAnnouncementAuto);
+}
 
 startAnnouncementAuto();
