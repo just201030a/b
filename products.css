@@ -184,9 +184,16 @@ text-align:center;
 opacity:0;
 transition:opacity 0.3s ease;
 z-index:2;
-appearance:none;
-}
 
+appearance:none;
+-webkit-appearance:none;
+-moz-appearance:none;
+
+color:#000;
+}
+.shade-select option{
+color:black;
+}
 .category-image-box:hover .shade-select{
 opacity:1;
 }
