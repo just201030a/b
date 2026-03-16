@@ -689,3 +689,25 @@ text-decoration:none;
 color:#888;
 }
 
+.about-header{
+position:absolute;
+right:35px;
+top:50%;
+transform:translateY(-50%);
+font-family:Arial, sans-serif;
+font-size:11px;
+letter-spacing:3px;
+text-decoration:none;
+color:black;
+}
+
+/* اخفاءه في الجوال */
+
+@media (max-width:768px){
+
+.about-header{
+display:none;
+}
+
+}
+
