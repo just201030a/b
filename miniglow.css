@@ -1066,3 +1066,23 @@ text-align:center;
 flex:1;
 }
 
+/* FIX اللون في الجوال */
+
+.size-btn{
+color:#000 !important;
+border:1px solid #000 !important;
+background:#fff !important;
+}
+
+/* إزالة اللون الأزرق عند الضغط (iPhone / Android) */
+.size-btn:focus,
+.size-btn:active{
+color:#000 !important;
+outline:none;
+box-shadow:none;
+}
+
+/* إزالة highlight الأزرق في الموبايل */
+.size-btn{
+-webkit-tap-highlight-color: transparent;
+}
