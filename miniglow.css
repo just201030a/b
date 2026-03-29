@@ -1066,23 +1066,26 @@ text-align:center;
 flex:1;
 }
 
-/* FIX اللون في الجوال */
+/* FORCE FIX للجوال */
+
+@media (max-width:768px){
 
 .size-btn{
 color:#000 !important;
 border:1px solid #000 !important;
 background:#fff !important;
+
+appearance:none;
+-webkit-appearance:none;
+
+-webkit-tap-highlight-color: transparent;
 }
 
-/* إزالة اللون الأزرق عند الضغط (iPhone / Android) */
 .size-btn:focus,
 .size-btn:active{
 color:#000 !important;
-outline:none;
-box-shadow:none;
+background:#fff !important;
+outline:none !important;
+box-shadow:none !important;
 }
-
-/* إزالة highlight الأزرق في الموبايل */
-.size-btn{
--webkit-tap-highlight-color: transparent;
 }
