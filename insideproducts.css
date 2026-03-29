@@ -460,10 +460,7 @@ pointer-events:auto;
 
 .mega-grid{
 display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:30px;
-max-width:1400px;
-margin:auto;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 }
 
 .mega-item{

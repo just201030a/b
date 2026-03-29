@@ -716,3 +716,353 @@ display:none;
 
 }
 
+/* MINI SECTION */
+
+.mini-section{
+padding:60px 4vw;
+text-align:center;
+}
+
+.mini-title{
+font-family:Arial;
+letter-spacing:6px;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.mini-sub{
+font-family:Arial;
+letter-spacing:4px;
+font-size:11px;
+margin-bottom:40px;
+}
+
+/* CARD */
+
+.mini-card{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+margin-bottom:60px;
+}
+
+/* IMAGES */
+
+.mini-images{
+position:relative;
+background:#ebe3dc;
+height:420px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+
+/* zoom خفيف */
+.mini-images:hover img{
+transform:scale(1.05);
+}
+
+.mini-images img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+transition:0.4s;
+}
+
+.hover-img{
+opacity:0;
+}
+
+.mini-images:hover .hover-img{
+opacity:1;
+}
+
+.mini-images:hover img:first-child{
+opacity:0;
+}
+
+/* INFO */
+
+.mini-info{
+text-align:left;
+}
+
+.mini-name{
+font-family:Arial;
+letter-spacing:4px;
+font-size:12px;
+margin-bottom:20px;
+}
+
+/* SIZE BUTTONS */
+
+.mini-sizes{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.size-btn{
+border:1px solid #000;
+background:white;
+padding:8px 12px;
+font-family:Arial;
+font-size:10px;
+letter-spacing:2px;
+cursor:pointer;
+}
+
+.size-btn.active{
+background:#000;
+color:white;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+width:100%;
+padding:16px;
+border:1px solid #000;
+background:white;
+font-family:Arial;
+font-size:11px;
+letter-spacing:4px;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+/* hover luxury */
+.add-btn::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:#000;
+transition:0.4s;
+z-index:0;
+}
+
+.add-btn:hover::after{
+left:0;
+}
+
+.add-btn span{
+position:relative;
+z-index:1;
+}
+
+.add-btn:hover{
+color:#fff;
+}
+/* MOBILE */
+
+@media(max-width:768px){
+
+.mini-card{
+grid-template-columns:1fr;
+}
+
+.mini-info{
+text-align:center;
+}
+
+}
+
+/* MINI SECTION */
+
+.mini-section{
+padding:60px 4vw;
+text-align:center;
+}
+
+.mini-title{
+font-family:Arial, sans-serif;
+letter-spacing:6px;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.mini-sub{
+font-family:Arial, sans-serif;
+letter-spacing:4px;
+font-size:11px;
+margin-bottom:50px;
+}
+
+/* CARD */
+
+.mini-card{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+margin-bottom:70px;
+}
+
+/* IMAGES */
+
+.mini-images{
+position:relative;
+background:#ebe3dc;
+height:520px;
+overflow:hidden;
+}
+
+.mini-images img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+transition:0.4s ease;
+}
+
+.hover-img{
+opacity:0;
+}
+
+.mini-images:hover .hover-img{
+opacity:1;
+}
+
+.mini-images:hover img:first-child{
+opacity:0;
+transform:scale(1.05);
+}
+
+/* INFO */
+
+.mini-info{
+text-align:left;
+}
+
+.mini-name{
+font-family:Arial, sans-serif;
+letter-spacing:4px;
+font-size:12px;
+margin-bottom:25px;
+}
+
+/* SIZE BUTTONS */
+
+.mini-sizes{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.size-btn{
+border:1px solid #000;
+background:white;
+padding:8px 12px;
+font-family:Arial;
+font-size:10px;
+letter-spacing:2px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.size-btn:hover{
+background:#000;
+color:#fff;
+}
+
+/* ORDER BUTTON */
+
+.order-btn{
+display:block;
+width:100%;
+padding:16px;
+border:1px solid #000;
+background:white;
+font-family:Arial;
+font-size:11px;
+letter-spacing:4px;
+text-decoration:none;
+text-align:center;
+color:#000;
+position:relative;
+overflow:hidden;
+transition:0.3s;
+}
+
+/* luxury hover */
+
+.order-btn::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:#000;
+transition:0.4s;
+z-index:0;
+}
+
+.order-btn:hover::after{
+left:0;
+}
+
+.order-btn span{
+position:relative;
+z-index:1;
+}
+
+.order-btn:hover{
+color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.mini-card{
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.mini-info{
+text-align:center;
+}
+
+.mini-images{
+height:320px;
+}
+
+}
+/* ORDER ROW */
+
+.order-row{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+/* PRICE */
+
+.selected-price{
+min-width:110px;
+font-family:Arial;
+font-size:11px;
+letter-spacing:3px;
+border:1px solid #000;
+padding:14px 10px;
+text-align:center;
+}
+
+/* BUTTON يأخذ باقي المساحة */
+
+.order-row .order-btn{
+flex:1;
+}
+
