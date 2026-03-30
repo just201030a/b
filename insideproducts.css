@@ -1247,3 +1247,34 @@ color:#fff;
 opacity:0.4;
 cursor:not-allowed;
 }
+/* 🔥 FORCE BLACK ON MOBILE */
+
+@media (max-width:768px){
+
+/* الشيدز */
+.shade-btn{
+background:#000 !important;
+color:#fff !important;
+border:1px solid #000 !important;
+}
+
+/* الكومبو */
+.combo-toggle{
+background:#000 !important;
+color:#fff !important;
+border:1px solid #000 !important;
+}
+
+/* الخيارات داخل القائمة */
+.combo-option{
+background:#000 !important;
+color:#fff !important;
+}
+
+/* hover */
+.combo-option:hover{
+background:#111 !important;
+color:#fff !important;
+}
+
+}
