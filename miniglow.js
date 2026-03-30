@@ -397,3 +397,25 @@ priceBox.textContent = `${price} BD`;
 });
 
 });
+document.querySelectorAll(".mini-card").forEach(card => {
+
+  const shadeBtns = card.querySelectorAll(".shade-btn");
+  const sizeBtns = card.querySelectorAll(".size-btn");
+
+  // SHADES
+  shadeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      shadeBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+
+  // SIZES
+  sizeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      sizeBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+
+});

@@ -948,3 +948,302 @@ width:100%;
 height:100%;
 object-fit:cover;
 }
+
+/* SHADE BUTTONS */
+
+.shade-options{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-top:10px;
+}
+
+.shade-btn{
+border:1px solid #000;
+background:#fff;
+padding:10px;
+font-size:11px;
+letter-spacing:2px;
+font-family:Arial, sans-serif;
+cursor:pointer;
+text-align:left;
+transition:0.2s;
+}
+
+.shade-btn.active{
+background:#000;
+color:#fff;
+}
+
+/* STOCK */
+
+.stock-status{
+margin-top:12px;
+font-size:10px;
+letter-spacing:3px;
+font-family:Arial, sans-serif;
+}
+
+.stock-status.in{
+opacity:0.7;
+}
+
+.stock-status.out{
+opacity:0.3;
+}
+/* ============================== */
+/* 🔥 LUXURY UI UPGRADE (ADD ONLY) */
+/* ============================== */
+
+/* PRODUCT SPACING IMPROVEMENT */
+
+.product-container{
+gap:90px;
+align-items:center;
+}
+
+/* IMAGE MORE PREMIUM */
+
+.product-main-image{
+border-radius:4px;
+}
+
+.product-main-image img{
+transition:transform 0.5s ease, opacity 0.4s ease;
+}
+
+/* INFO SPACING */
+
+.product-info{
+gap:22px;
+}
+
+/* TITLE REFINED */
+
+.product-name{
+letter-spacing:5px;
+line-height:1.4;
+}
+
+/* PRICE CLEAN */
+
+.product-price{
+opacity:0.7;
+}
+
+/* SHADE OPTIONS → PREMIUM GRID */
+
+/* SHADE OPTIONS CLEAN */
+
+.shade-options{
+display:flex;
+flex-direction:column;
+gap:8px;
+margin-top:14px;
+margin-bottom:14px;
+}
+
+/* BUTTON STYLE */
+
+.shade-btn{
+border:1px solid #000;
+background:#fff;
+padding:9px 12px;
+font-size:10px;
+letter-spacing:2.5px;
+font-family:Arial, sans-serif;
+cursor:pointer;
+text-align:left;
+transition:all 0.25s ease;
+}
+
+/* HOVER */
+
+.shade-btn:hover{
+background:#000;
+color:#fff;
+}
+
+/* ACTIVE */
+
+.shade-btn.active{
+background:#000;
+color:#fff;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* OUT OF STOCK */
+
+.shade-btn[data-stock="out"]{
+opacity:0.35;
+cursor:not-allowed;
+}
+
+/* STOCK TEXT */
+
+.stock-status{
+margin-top:4px;
+font-size:9px;
+letter-spacing:3px;
+font-family:Arial, sans-serif;
+opacity:0.6;
+}
+
+/* BUTTON (ORDER) */
+
+.add-to-bag{
+margin-top:18px;
+padding:16px;
+letter-spacing:5px;
+font-size:11px;
+transition:all 0.3s ease;
+}
+
+.add-to-bag:hover{
+background:#000;
+color:#fff;
+transform:translateY(-1px);
+}
+
+.add-to-bag:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* DISABLED BUTTON */
+
+.add-to-bag[style*="pointer-events: none"]{
+opacity:0.3 !important;
+transform:none !important;
+box-shadow:none !important;
+}
+
+/* STOCK TEXT */
+
+.stock-status{
+margin-top:6px;
+transition:0.3s;
+}
+
+.stock-status.in{
+opacity:0.6;
+}
+
+.stock-status.out{
+opacity:0.3;
+}
+
+/* FADE IN ANIMATION */
+
+.product-container{
+animation:fadeLuxury 0.8s ease;
+}
+
+@keyframes fadeLuxury{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* MOBILE IMPROVEMENT */
+
+@media(max-width:768px){
+
+.product-container{
+gap:35px;
+}
+
+.product-name{
+font-size:16px;
+}
+
+.product-main-image{
+height:420px;
+}
+
+.shade-options{
+gap:6px;
+}
+
+}
+/* COMBO BOX */
+
+.combo-box{
+width:260px;
+position:relative;
+}
+
+/* BUTTON */
+
+.combo-toggle{
+width:100%;
+padding:12px;
+border:1px solid #000;
+background:#fff;
+font-family:Arial;
+font-size:11px;
+letter-spacing:3px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.combo-icon{
+font-size:16px;
+transition:0.25s;
+}
+
+.combo-box.active .combo-icon{
+transform:rotate(45deg);
+}
+
+/* MENU */
+
+.combo-menu{
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#fff;
+border:1px solid #000;
+border-top:none;
+display:none;
+z-index:10;
+}
+
+.combo-box.active .combo-menu{
+display:block;
+}
+
+/* OPTIONS */
+
+.combo-option{
+width:100%;
+padding:12px;
+border:none;
+border-top:1px solid #eee;
+background:#fff;
+text-align:left;
+font-family:Arial;
+font-size:11px;
+letter-spacing:2px;
+cursor:pointer;
+}
+
+.combo-option:hover{
+background:#000;
+color:#fff;
+}
+
+/* OUT OF STOCK */
+
+.combo-option[data-stock="out"]{
+opacity:0.4;
+cursor:not-allowed;
+}

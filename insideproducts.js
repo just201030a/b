@@ -375,3 +375,101 @@ console.log("Selected shade:",this.value);
 });
 
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+const products = document.querySelectorAll(".product-page");
+
+products.forEach(product => {
+
+const shadeBtns = product.querySelectorAll(".shade-btn");
+const stockStatus = product.querySelector(".stock-status");
+const orderBtn = product.querySelector(".add-to-bag");
+
+if(!shadeBtns.length) return;
+
+shadeBtns.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+shadeBtns.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
+
+const stock = btn.dataset.stock;
+
+// AVAILABLE
+if(stock === "in"){
+  stockStatus.textContent = "AVAILABLE";
+  stockStatus.className = "stock-status in";
+  orderBtn.style.opacity = "1";
+  orderBtn.style.pointerEvents = "auto";
+}
+
+// SOLD OUT
+if(stock === "out"){
+  stockStatus.textContent = "SOLD OUT";
+  stockStatus.className = "stock-status out";
+  orderBtn.style.opacity = "0.4";
+  orderBtn.style.pointerEvents = "none";
+}
+
+});
+
+});
+
+});
+
+});
+
+document.querySelectorAll(".combo-box").forEach(box => {
+
+const toggle = box.querySelector(".combo-toggle");
+const menu = box.querySelector(".combo-menu");
+const options = box.querySelectorAll(".combo-option");
+const text = box.querySelector(".selected-text");
+
+const product = box.closest(".product-page");
+const stockStatus = product.querySelector(".stock-status");
+const orderBtn = product.querySelector(".add-to-bag");
+
+// فتح / اغلاق
+toggle.addEventListener("click", () => {
+box.classList.toggle("active");
+});
+
+// اختيار
+options.forEach(option => {
+
+option.addEventListener("click", () => {
+
+if(option.dataset.stock === "out") return;
+
+text.textContent = option.textContent;
+box.classList.remove("active");
+
+// STOCK
+if(option.dataset.stock === "in"){
+  stockStatus.textContent = "AVAILABLE";
+  stockStatus.className = "stock-status in";
+  orderBtn.style.pointerEvents = "auto";
+  orderBtn.style.opacity = "1";
+}
+
+if(option.dataset.stock === "out"){
+  stockStatus.textContent = "SOLD OUT";
+  stockStatus.className = "stock-status out";
+  orderBtn.style.pointerEvents = "none";
+  orderBtn.style.opacity = "0.4";
+}
+
+});
+
+});
+
+// اغلاق اذا ضغط برا
+document.addEventListener("click", (e)=>{
+if(!box.contains(e.target)){
+  box.classList.remove("active");
+}
+});
+
+});

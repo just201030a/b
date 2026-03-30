@@ -921,8 +921,10 @@ overflow:hidden;
 width:100%;
 height:100%;
 object-fit:cover;
-position:absolute;
-transition:0.4s ease;
+object-position:center;
+
+/* auto adjust */
+aspect-ratio:1/1;
 }
 
 .hover-img{
@@ -1088,4 +1090,41 @@ background:#fff !important;
 outline:none !important;
 box-shadow:none !important;
 }
+}
+.shades-box{
+margin-bottom:20px;
+}
+
+.shades-title{
+font-family:Arial, sans-serif;
+font-size:10px;
+letter-spacing:3px;
+margin-bottom:10px;
+}
+
+.shades-list{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.shade-btn{
+padding:6px 10px;
+border:1px solid #d9d9d9;
+background:white;
+font-family:Arial;
+font-size:10px;
+letter-spacing:2px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.shade-btn:hover{
+border-color:black;
+}
+
+.shade-btn.active{
+background:black;
+color:white;
+border-color:black;
 }
