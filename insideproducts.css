@@ -1275,3 +1275,26 @@ box-shadow:none !important;
 }
 
 }
+
+/* REMOVE BLUE TEXT SELECTION (MOBILE FIX) */
+
+.combo-option,
+.combo-toggle,
+.shade-btn,
+.size-btn,
+button{
+-webkit-user-select: none;
+user-select: none;
+}
+
+/* لو انحدد غصب */
+
+::selection{
+background: transparent;
+color: inherit;
+}
+
+::-webkit-selection{
+background: transparent;
+color: inherit;
+}
