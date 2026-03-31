@@ -1298,3 +1298,30 @@ color: inherit;
 background: transparent;
 color: inherit;
 }
+/* FINAL MOBILE BLUE FIX */
+
+button,
+.combo-toggle,
+.combo-option,
+.shade-btn,
+.size-btn{
+outline: none !important;
+box-shadow: none !important;
+-webkit-tap-highlight-color: transparent !important;
+}
+
+/* مهم جدًا */
+button:focus,
+button:active,
+.combo-toggle:focus,
+.combo-toggle:active,
+.combo-option:focus,
+.combo-option:active{
+outline: none !important;
+box-shadow: none !important;
+}
+
+/* iOS FIX قوي */
+*{
+-webkit-focus-ring-color: transparent !important;
+}
