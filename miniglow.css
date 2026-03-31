@@ -1152,3 +1152,46 @@ box-shadow:none !important;
 }
 
 }
+/* GLOBAL MOBILE CLICK FIX */
+
+@media (max-width:768px){
+
+button,
+.combo-option,
+.shade-btn,
+.size-btn,
+.view-product-btn,
+.add-to-bag{
+
+/* نلغي الأزرق */
+-webkit-tap-highlight-color: transparent;
+
+/* نلغي شكل النظام */
+appearance:none;
+-webkit-appearance:none;
+
+/* نحافظ على نفس الشكل */
+color:#000;
+background:#fff;
+}
+
+/* لما تضغط = يصير أسود */
+button:active,
+.combo-option:active,
+.shade-btn:active,
+.size-btn:active,
+.view-product-btn:active,
+.add-to-bag:active{
+
+background:#000 !important;
+color:#fff !important;
+border-color:#000 !important;
+}
+
+/* إزالة أي تأثير مزعج */
+button:focus{
+outline:none;
+box-shadow:none;
+}
+
+}
