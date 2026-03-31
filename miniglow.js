@@ -419,3 +419,28 @@ document.querySelectorAll(".mini-card").forEach(card => {
   });
 
 });
+
+// SHADE BUTTONS
+const shadeBtns = document.querySelectorAll(".shade-btn");
+
+shadeBtns.forEach(btn => {
+btn.addEventListener("click", () => {
+
+shadeBtns.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
+
+});
+});
+
+
+// SIZE BUTTONS
+const sizeBtns = document.querySelectorAll(".size-btn");
+
+sizeBtns.forEach(btn => {
+btn.addEventListener("click", () => {
+
+sizeBtns.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
+
+});
+});
