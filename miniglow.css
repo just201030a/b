@@ -1128,26 +1128,27 @@ background:black;
 color:white;
 border-color:black;
 }
-
-/* 🔥 MOBILE FIX - SHADES BLACK */
+/* FIX SHADES BUTTONS ON MOBILE */
 
 @media (max-width:768px){
 
 .shade-btn{
-background:#000 !important;
-color:#fff !important;
-border:1px solid #000 !important;
+color:#000 !important;
+background:#fff !important;
+border:1px solid #d9d9d9 !important;
+
+appearance:none;
+-webkit-appearance:none;
+
+-webkit-tap-highlight-color: transparent;
 }
 
-/* hover (لو فيه لمس) */
+.shade-btn:focus,
 .shade-btn:active{
-background:#111 !important;
-}
-
-/* active */
-.shade-btn.active{
-background:#000 !important;
-color:#fff !important;
+color:#000 !important;
+background:#fff !important;
+outline:none !important;
+box-shadow:none !important;
 }
 
 }

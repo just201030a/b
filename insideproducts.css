@@ -1234,7 +1234,12 @@ font-family:Arial;
 font-size:11px;
 letter-spacing:2px;
 cursor:pointer;
+
+/* الحل هنا */
+color:#000;
 }
+
+
 
 .combo-option:hover{
 background:#000;
@@ -1247,34 +1252,26 @@ color:#fff;
 opacity:0.4;
 cursor:not-allowed;
 }
-/* 🔥 FORCE BLACK ON MOBILE */
+/* FIX COMBO OPTIONS MOBILE */
 
 @media (max-width:768px){
 
-/* الشيدز */
-.shade-btn{
-background:#000 !important;
-color:#fff !important;
-border:1px solid #000 !important;
-}
-
-/* الكومبو */
-.combo-toggle{
-background:#000 !important;
-color:#fff !important;
-border:1px solid #000 !important;
-}
-
-/* الخيارات داخل القائمة */
 .combo-option{
-background:#000 !important;
-color:#fff !important;
+color:#000 !important;
+background:#fff !important;
+
+appearance:none;
+-webkit-appearance:none;
+
+-webkit-tap-highlight-color: transparent;
 }
 
-/* hover */
-.combo-option:hover{
-background:#111 !important;
-color:#fff !important;
+.combo-option:focus,
+.combo-option:active{
+color:#000 !important;
+background:#fff !important;
+outline:none !important;
+box-shadow:none !important;
 }
 
 }
