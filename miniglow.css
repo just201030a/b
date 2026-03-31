@@ -819,7 +819,8 @@ cursor:pointer;
 
 .size-btn.active{
 background:#000;
-color:white;
+color:#fff;
+border-color:#000;
 }
 
 /* ADD BUTTON */
