@@ -1196,3 +1196,18 @@ box-shadow:none;
 }
 
 }
+/* يخلي active ثابت بعد الضغط */
+
+.size-btn.active,
+.shade-btn.active{
+background:#000 !important;
+color:#fff !important;
+border-color:#000 !important;
+}
+
+/* يمنع الجوال يرجع الشكل */
+.size-btn:not(.active):active,
+.shade-btn:not(.active):active{
+background:#000;
+color:#fff;
+}

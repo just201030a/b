@@ -1325,3 +1325,39 @@ box-shadow: none !important;
 *{
 -webkit-focus-ring-color: transparent !important;
 }
+/* ===== COMBO BOX FIX (MOBILE) ===== */
+
+.combo-toggle{
+color:#000 !important;
+background:#fff !important;
+border:1px solid #000 !important;
+
+appearance:none;
+-webkit-appearance:none;
+
+-webkit-tap-highlight-color: transparent;
+outline:none;
+}
+
+/* لما تضغط */
+.combo-toggle:active,
+.combo-toggle:focus{
+background:#000 !important;
+color:#fff !important;
+border-color:#000 !important;
+outline:none;
+box-shadow:none;
+}
+
+/* النص داخل الزر */
+.combo-toggle .selected-text{
+color:inherit;
+}
+
+/* الايقونة */
+.combo-toggle .combo-icon{
+color:inherit;
+}
+button{
+-webkit-tap-highlight-color: transparent;
+}

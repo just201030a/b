@@ -443,4 +443,36 @@ sizeBtns.forEach(b => b.classList.remove("active"));
 btn.classList.add("active");
 
 });
+/* ===== FINAL FIX (DO NOT REMOVE ANYTHING ABOVE) ===== */
+
+document.querySelectorAll(".mini-card").forEach(card => {
+
+  const shadeBtns = card.querySelectorAll(".shade-btn");
+  const sizeBtns = card.querySelectorAll(".size-btn");
+
+  /* FIX SHADES */
+  shadeBtns.forEach(btn => {
+    btn.addEventListener("click", function(e){
+
+      e.stopImmediatePropagation(); // 🔥 يمنع أي كود ثاني يخرب
+
+      shadeBtns.forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+
+    });
+  });
+
+  /* FIX SIZES */
+  sizeBtns.forEach(btn => {
+    btn.addEventListener("click", function(e){
+
+      e.stopImmediatePropagation(); // 🔥 نفس الشي هنا
+
+      sizeBtns.forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+
+    });
+  });
+
+});
 });

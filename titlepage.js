@@ -350,4 +350,29 @@ e.preventDefault();
 findusMenu.classList.toggle("active");
 
 });
+
+
+
+// يظهر أول ما تفتح الموقع
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("popupOverlay").classList.add("active");
+  }, 800);
+});
+
+// إغلاق
+document.querySelector(".popup-close").onclick = () => {
+  document.getElementById("popupOverlay").classList.remove("active");
+};
+
+// إغلاق عند الضغط خارج البوكس
+document.getElementById("popupOverlay").onclick = (e) => {
+  if(e.target.id === "popupOverlay"){
+    document.getElementById("popupOverlay").classList.remove("active");
+  }
+};
+
+
+
+
 }
