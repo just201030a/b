@@ -784,3 +784,90 @@ display:none;
 }
 
 }
+/* NEW BADGE */
+.product-badge {
+position: absolute;
+top: 12px;
+left: 12px;
+background: black;
+color: white;
+font-size: 10px;
+letter-spacing: 2px;
+padding: 6px 10px;
+font-family: Arial, sans-serif;
+z-index: 10;
+}
+
+/* مهم جداً عشان يشتغل التمركز */
+.category-image-box,
+.product-main-image,
+.mini-images {
+position: relative;
+}
+/* ===================== */
+/* ✨ LUXURY NEW BADGE ✨ */
+/* ===================== */
+
+/* ===================== */
+/* 🌑 DARK LUXURY BADGE */
+/* ===================== */
+
+.product-badge {
+position: absolute;
+top: 14px;
+left: 14px;
+z-index: 10;
+
+padding: 6px 14px;
+border-radius: 20px;
+
+/* اللون الغامق الفخم */
+background: rgba(0, 0, 0, 0.85);
+backdrop-filter: blur(6px);
+
+border: 1px solid rgba(255,255,255,0.15);
+
+font-family: Arial, sans-serif;
+font-size: 10px;
+letter-spacing: 3px;
+
+overflow: hidden;
+}
+
+/* النص */
+.product-badge span {
+color: #fff;
+position: relative;
+z-index: 2;
+}
+
+/* ✨ shine خفيف */
+.product-badge::before {
+content: "";
+position: absolute;
+top: 0;
+left: -60%;
+width: 50%;
+height: 100%;
+
+background: linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.3),
+transparent
+);
+
+transform: skewX(-20deg);
+animation: shineMove 3s infinite;
+}
+
+@keyframes shineMove {
+0% { left: -60%; }
+100% { left: 130%; }
+}
+
+/* hover */
+.product-badge:hover {
+transform: scale(1.06);
+transition: 0.3s;
+}
