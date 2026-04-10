@@ -807,3 +807,30 @@ height: 200px;
 }
 
 }
+/* ===== FIX MOBILE FULL WIDTH SLIDER ===== */
+@media (max-width:600px){
+
+.categories-section{
+padding:0 !important;
+}
+
+.categories-wrapper{
+overflow:hidden;
+}
+
+.categories-slider{
+gap:0 !important;
+}
+
+.category-card{
+min-width:100vw !important;
+flex:0 0 100vw !important;
+}
+
+.category-image-box{
+width:100vw !important;
+height:72vh;
+min-height:520px;
+}
+
+}
