@@ -811,7 +811,8 @@ height: 200px;
 @media (max-width:600px){
 
 .categories-section{
-padding:0 !important;
+padding:20px 0 40px !important;
+
 }
 
 .categories-wrapper{
@@ -834,3 +835,4 @@ min-height:520px;
 }
 
 }
+
