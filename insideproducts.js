@@ -473,3 +473,54 @@ if(!box.contains(e.target)){
 });
 
 });
+/* ============================ */
+/* AUTO BRAND + ORIGINAL */
+/* ============================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const productInfo = document.querySelector(".product-info");
+  if (!productInfo) return;
+
+  // نحدد النص من الرابط + الصور
+  const path = window.location.pathname.toLowerCase();
+  const img = document.querySelector(".product-main-image img");
+  const imgSrc = img ? img.getAttribute("src").toLowerCase() : "";
+
+  const fullText = path + " " + imgSrc;
+
+  let brandName = "";
+
+  if (fullText.includes("huda")) brandName = "HUDA BEAUTY";
+  else if (fullText.includes("fenty")) brandName = "FENTY BEAUTY";
+  else if (fullText.includes("mario")) brandName = "MAKEUP BY MARIO";
+  else if (fullText.includes("refy")) brandName = "REFY";
+  else if (fullText.includes("kosas")) brandName = "KOSAS";
+  else if (fullText.includes("saie")) brandName = "SAIE";
+  else if (fullText.includes("haus")) brandName = "HAUS LABS";
+  else if (fullText.includes("onesize") || fullText.includes("one size")) brandName = "ONE/SIZE";
+  else if (fullText.includes("loca")) brandName = "LOCA";
+  else brandName = "";
+
+  const title = productInfo.querySelector(".product-name");
+  const price = productInfo.querySelector(".product-price");
+
+  // نضيف اسم البراند
+  if (brandName && title && !productInfo.querySelector(".product-brand")) {
+    const brand = document.createElement("p");
+    brand.className = "product-brand";
+    brand.textContent = brandName;
+    title.before(brand);
+  }
+
+const orderBtn = productInfo.querySelector(".add-to-bag");
+
+if (orderBtn && !document.querySelector(".original-product")) {
+  const original = document.createElement("p");
+  original.className = "original-product";
+  original.textContent = "100% ORIGINAL PRODUCT";
+
+  orderBtn.after(original);
+}
+
+});

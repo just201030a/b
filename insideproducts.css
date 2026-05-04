@@ -1339,6 +1339,7 @@ appearance:none;
 outline:none;
 }
 
+
 /* لما تضغط */
 .combo-toggle:active,
 .combo-toggle:focus{
@@ -1360,4 +1361,78 @@ color:inherit;
 }
 button{
 -webkit-tap-highlight-color: transparent;
+}
+/* ORIGINAL PRODUCT + TRUST ONLY */
+
+.original-product{
+font-family:Arial, sans-serif;
+font-size:9px;
+letter-spacing:3px;
+opacity:0.55;
+display:flex;
+align-items:center;
+gap:7px;
+margin-top:-10px;
+}
+
+.original-product::before{
+content:"✓";
+font-size:10px;
+}
+
+.product-trust{
+width:100%;
+margin-top:10px;
+padding-top:18px;
+border-top:1px solid rgba(0,0,0,0.16);
+display:flex;
+flex-direction:column;
+gap:9px;
+}
+
+.product-trust p{
+font-family:Arial, sans-serif;
+font-size:9px;
+letter-spacing:2.8px;
+text-transform:uppercase;
+opacity:0.52;
+margin:0;
+}
+
+.product-trust p::before{
+content:"✓";
+margin-right:9px;
+}
+
+.product-brand{
+font-family:Arial, sans-serif;
+font-size:9px;
+letter-spacing:5px;
+opacity:0.42;
+margin-bottom:-8px;
+}
+.product-brand{
+font-family:Arial, sans-serif;
+font-size:10px;
+letter-spacing:6px;
+opacity:0.35;
+margin-bottom:-6px;
+}
+
+.original-product{
+font-family:Arial, sans-serif;
+font-size:9px;
+letter-spacing:3px;
+opacity:0.5;
+display:flex;
+align-items:center;
+gap:7px;
+margin-top:18px;
+padding-top:14px;
+border-top:1px solid rgba(0,0,0,0.15);
+}
+
+.original-product::before{
+content:"✓";
+font-size:10px;
 }
